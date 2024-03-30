@@ -69,6 +69,9 @@ unlinked_spec.ds
 **/android/local.properties
 **/android/**/GeneratedPluginRegistrant.java
 **/android/key.properties
+# Keystore should never be stored in git
+# Instead, save it in a secure location and read it from there
+# i.e. Secrets
 *.jks
 
 # iOS/XCode related
@@ -135,3 +138,18 @@ app.*.symbols
 
 # For applications only. Not for packages!
 !pubspec.lock
+
+# Build
+build/
+
+# Codegen 
+*.*.dart
+generated_*
+# lib/src/core/assets/generated/
+lib/src/core/localization/generated/
+
+# pubspec.lock
+.metadata
+
+# FVM
+# .fvm/flutter_sdk
