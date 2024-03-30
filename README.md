@@ -113,3 +113,11 @@ appBar: AppBar(
 > Note The Material app has to actually be started to initialize `AppLocalizations`. If the app hasn’t yet started, `AppLocalizations.of(context)!.hello` causes a null exception.
 
 This code generates a `Text` widget that displays `“Hello”` if the target device’s locale is set to English, and `“Привет”` if the target device’s locale is set to Russian. In the `arb` files, the key of each entry is used as the method name of the getter, while the value of that entry contains the localized message.
+
+To localize your device app description, pass the localized string to `MaterialApp.onGenerateTitle`:
+```
+return MaterialApp(
+  onGenerateTitle: (context) => AppLocalizations.of(context)!.hello,
+```
+
+See more on [Internationalizing Flutter apps](https://docs.flutter.dev/ui/accessibility-and-internationalization/internationalization).
