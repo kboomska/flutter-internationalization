@@ -52,7 +52,7 @@ output-localization-file: app_localizations.dart
 This file configures the localization tool. In this example, you’ve done the following:
 
 - Put the App Resource Bundle (.arb) input files in `${FLUTTER_PROJECT}/lib/src/core/localization/translations`. The `.arb` provide localization resources for your app.
-- Set the English template as `app_en.arb`.
+- Set the English template as `intl_en.arb`.
 - Told Flutter to generate localizations in the `app_localizations.dart` file.
 
 In `${FLUTTER_PROJECT}/lib/src/core/localization/translations`, add the `intl_en.arb` template file. For example:
