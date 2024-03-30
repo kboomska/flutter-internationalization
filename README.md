@@ -110,7 +110,7 @@ appBar: AppBar(
   title: Text(AppLocalizations.of(context)!.hello),
 ),
 ```
-> Note The Material app has to actually be started to initialize `AppLocalizations`. If the app hasn’t yet started, `AppLocalizations.of(context)!.hello` causes a null exception.
+> ❗ **Note** The Material app has to actually be started to initialize `AppLocalizations`. If the app hasn’t yet started, `AppLocalizations.of(context)!.hello` causes a null exception.
 
 This code generates a `Text` widget that displays `“Hello”` if the target device’s locale is set to English, and `“Привет”` if the target device’s locale is set to Russian. In the `arb` files, the key of each entry is used as the method name of the getter, while the value of that entry contains the localized message.
 
@@ -120,4 +120,33 @@ return MaterialApp(
   onGenerateTitle: (context) => AppLocalizations.of(context)!.hello,
 ```
 
-See more on [Internationalizing Flutter apps](https://docs.flutter.dev/ui/accessibility-and-internationalization/internationalization).
+## Maintaining arb files with Flutter Intl extension
+
+This VS Code extension will help to create a binding between translations from `.arb` files and Flutter app. It generates boilerplate code for official Dart [Intl](https://pub.dev/packages/intl) library and adds auto-complete for keys in Dart code.
+
+This plugin is also available for [IntelliJ / Android Studio](https://plugins.jetbrains.com/plugin/13666-flutter-intl).
+
+[Install from the Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=localizely.flutter-intl) or by [searching within VS Code](https://code.visualstudio.com/docs/editor/extension-marketplace#_search-for-an-extension).
+
+Open the `pubspec.yaml` file and include the following Flutter Intl configuration:
+```
+flutter_intl:
+  enabled: true
+  class_name: GeneratedLocalization
+  main_locale: en
+  arb_dir: lib/src/core/localization/translations
+  output_dir: lib/src/core/localization/generated
+```
+> ❗ **Note** For `arb_dir` specify already existing path to `.arb` files, defined at the stage of creating of `l10n.yaml` file.
+
+## Editor actions
+
+`Extract to ARB files`
+
+Extract string to ARB files using [code actions](https://code.visualstudio.com/docs/editor/refactoring#_code-actions-quick-fixes-and-refactorings). The dialog will ask you to enter the string key, which will be extracted to ARB files together with the selected content.
+
+## Links
+
+[Internationalizing Flutter apps](https://docs.flutter.dev/ui/accessibility-and-internationalization/internationalization)
+
+[Flutter Intl](https://marketplace.visualstudio.com/items?itemName=localizely.flutter-intl)

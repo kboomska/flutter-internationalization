@@ -22,3 +22,10 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+
+flutter_intl:
+  enabled: true
+  class_name: GeneratedLocalization
+  main_locale: en
+  arb_dir: lib/src/core/localization/translations
+  output_dir: lib/src/core/localization/generated

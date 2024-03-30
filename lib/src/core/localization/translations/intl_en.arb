@@ -1,7 +1,8 @@
 {
-    "hello": "Hello",
-    "@hello": {
-        "description": "The conventional newborn programmer greeting"
-    },
-    "title": "App localization"
+  "hello": "Hello",
+  "@hello": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "title": "App localization",
+  "bye": "Bye"
 }
