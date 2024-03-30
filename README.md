@@ -39,8 +39,9 @@ return const MaterialApp(
 
 Open the `pubspec.yaml` file and enable the generate flag. This flag is found in the `flutter` section in the pubspec file.
 ```
+# The following section is specific to Flutter.
 flutter:
-  generate: true
+  generate: true # Add this line
 ```
 Add a new yaml file to the root directory of the Flutter project. Name this file `l10n.yaml` and include following content:
 ```
@@ -70,3 +71,45 @@ Add another bundle file called `intl_ru.arb` in the same directory. In this file
 }
 ```
 Now, run `flutter pub get` or `flutter run` and codegen takes place automatically. You should find generated files in `${FLUTTER_PROJECT}/.dart_tool/flutter_gen/gen_l10n`. Alternatively, you can also run `flutter gen-l10n` to generate the same files without running the app.
+
+Add the import statement on `app_localizations.dart` and `AppLocalizations.delegate` in your call to the constructor for `MaterialApp`:
+```
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+```
+```
+return const MaterialApp(
+  title: 'Localizations Sample App',
+  localizationsDelegates: [
+    AppLocalizations.delegate, // Add this line
+    GlobalMaterialLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+  ],
+  supportedLocales: [
+    Locale('en'), // English
+    Locale('ru'), // Russian
+  ],
+  home: MyHomePage(),
+);
+```
+The AppLocalizations class also provides auto-generated localizationsDelegates and supportedLocales lists. You can use these instead of providing them manually.
+```
+const MaterialApp(
+  title: 'Localizations Sample App',
+  localizationsDelegates: AppLocalizations.localizationsDelegates,
+  supportedLocales: AppLocalizations.supportedLocales,
+);
+```
+Once the Material app has started, you can use AppLocalizations anywhere in your app:
+```
+appBar: AppBar(
+  // The [AppBar] title text should update its message
+  // according to the system locale of the target platform.
+  // Switching between English and Russian locales should
+  // cause this text to update.
+  title: Text(AppLocalizations.of(context)!.hello),
+),
+```
+> Note The Material app has to actually be started to initialize `AppLocalizations`. If the app hasn’t yet started, `AppLocalizations.of(context)!.hello` causes a null exception.
+
+This code generates a `Text` widget that displays `“Hello”` if the target device’s locale is set to English, and `“Привет”` if the target device’s locale is set to Russian. In the `arb` files, the key of each entry is used as the method name of the getter, while the value of that entry contains the localized message.
