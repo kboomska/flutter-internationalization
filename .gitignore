@@ -146,7 +146,7 @@ build/
 *.*.dart
 generated_*
 # lib/src/core/assets/generated/
-lib/src/core/localization/generated/
+# lib/src/core/localization/generated/
 
 # pubspec.lock
 .metadata

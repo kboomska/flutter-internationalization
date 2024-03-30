@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Text(
-          AppLocalizations.of(context)!.bye,
+          AppLocalizations.of(context)!.hello,
           style: const TextStyle(fontSize: 32),
         ),
       ),

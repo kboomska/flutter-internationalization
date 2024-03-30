@@ -45,17 +45,17 @@ flutter:
 ```
 Add a new yaml file to the root directory of the Flutter project. Name this file `l10n.yaml` and include following content:
 ```
-arb-dir: lib/src/core/localization/translations
+arb-dir: lib/l10n
 template-arb-file: intl_en.arb
 output-localization-file: app_localizations.dart
 ```
 This file configures the localization tool. In this example, you’ve done the following:
 
-- Put the App Resource Bundle (.arb) input files in `${FLUTTER_PROJECT}/lib/src/core/localization/translations`. The `.arb` provide localization resources for your app.
+- Put the App Resource Bundle (.arb) input files in `${FLUTTER_PROJECT}/lib/l10n`. The `.arb` provide localization resources for your app.
 - Set the English template as `intl_en.arb`.
 - Told Flutter to generate localizations in the `app_localizations.dart` file.
 
-In `${FLUTTER_PROJECT}/lib/src/core/localization/translations`, add the `intl_en.arb` template file. For example:
+In `${FLUTTER_PROJECT}/lib/l10n`, add the `intl_en.arb` template file. For example:
 ```
 {
     "hello": "Hello",
@@ -134,8 +134,8 @@ flutter_intl:
   enabled: true
   class_name: GeneratedLocalization
   main_locale: en
-  arb_dir: lib/src/core/localization/translations
-  output_dir: lib/src/core/localization/generated
+  arb_dir: lib/l10n
+  output_dir: lib/generated
 ```
 > ❗ **Note** For `arb_dir` specify already existing path to `.arb` files, defined at the stage of creating of `l10n.yaml` file.
 
