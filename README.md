@@ -112,7 +112,7 @@ appBar: AppBar(
 ```
 > ❗ **Note** The Material app has to actually be started to initialize `AppLocalizations`. If the app hasn’t yet started, `AppLocalizations.of(context)!.hello` causes a null exception.
 
-This code generates a `Text` widget that displays `“Hello”` if the target device’s locale is set to English, and `“Привет”` if the target device’s locale is set to Russian. In the `arb` files, the key of each entry is used as the method name of the getter, while the value of that entry contains the localized message.
+This code generates a `Text` widget that displays `"Hello"` if the target device’s locale is set to English, and `"Привет"` if the target device’s locale is set to Russian. In the `arb` files, the key of each entry is used as the method name of the getter, while the value of that entry contains the localized message.
 
 To localize your device app description, pass the localized string to `MaterialApp.onGenerateTitle`:
 ```
@@ -143,7 +143,9 @@ flutter_intl:
 
 `Extract to ARB files`
 
-Extract string to ARB files using [code actions](https://code.visualstudio.com/docs/editor/refactoring#_code-actions-quick-fixes-and-refactorings). The dialog will ask you to enter the string key, which will be extracted to ARB files together with the selected content.
+Extract string to `.arb` files using [code actions](https://code.visualstudio.com/docs/editor/refactoring#_code-actions-quick-fixes-and-refactorings). The dialog will ask you to enter the string key, which will be extracted to `.arb` files together with the selected content.
+
+> ❗ **Note** After extracting the string to `.arb` file, you should run `flutter pub get` or `flutter run` again.
 
 ## Links
 
